@@ -29,3 +29,42 @@ gem 'spring',      group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+
+gem "jquery-rails"
+gem "turbolinks"
+gem "compass-rails"
+gem "typescript-rails"
+gem "slim-rails"
+gem "devise"
+gem "active_link_to"
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "guard-bundler", require: false
+  gem "guard-rails", require: false
+  gem "guard-rspec", require: false
+  gem "guard-livereload", require: false
+  gem "rack-livereload"
+  gem "quiet_assets"
+  gem "spring-commands-rspec", require: false
+  gem "pry-rails"
+  gem "pry-rescue"
+  gem "rubocop", require: false
+  gem "bower-rails"
+end
+
+group :development, :test do
+  gem "factory_girl_rails"
+  gem "rspec-rails", require: false
+  gem "fuubar", require: false
+end
+
+group :test do
+  gem "capybara"
+  gem "database_cleaner"
+  gem "poltergeist", require: false
+end
+
+group :production do
+  gem "unicorn"
+end
