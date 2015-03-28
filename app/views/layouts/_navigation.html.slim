@@ -1,0 +1,19 @@
+nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
+        span.sr-only = t("app.navigation.toggle")
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to(application_name, root_path, class: "navbar-brand")
+    .collapse.navbar-collapse
+      - unless devise_controller?
+        ul.nav.navbar-nav
+          == render 'layouts/navigation_links'
+        ul.nav.navbar-nav.navbar-right
+          li
+            - if user_signed_in?
+              = link_to("Afmelden", destroy_user_session_path, :method => :delete)
+            - else
+              = link_to("Aanmelden", new_user_session_path)
